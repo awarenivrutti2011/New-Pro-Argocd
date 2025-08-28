@@ -6,6 +6,7 @@ metadata:
 data:
   index.html: |
     <!DOCTYPE html>
+<<<<<<< HEAD
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -174,3 +175,15 @@ data:
 
 </body>
 </html>
+=======
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Breakout Trade Tech</title>
+      </head>
+      <body>
+        <h1>Breakout Trade Tech Website</h1>
+      </body>
+    </html>
+
