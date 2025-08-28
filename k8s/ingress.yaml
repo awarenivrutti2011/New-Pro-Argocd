@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: breakout-trade-ingress
+  namespace: breakout-trade-tech
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+  - host: breakout-trade.local
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: breakout-trade-service
+            port:
+              number: 80

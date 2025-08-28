@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: breakout-trade-deployment
+  namespace: breakout-trade-tech
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: breakout-trade
+  template:
+    metadata:
+      labels:
+        app: breakout-trade
+    spec:
+      serviceAccountName: breakout-trade-sa
+      containers:
+      - name: breakout-trade-container
+        image: YOUR_DOCKERHUB_USERNAME/breakout-trade-tech:latest
+        ports:
+        - containerPort: 80
