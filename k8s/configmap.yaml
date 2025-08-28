@@ -6,13 +6,171 @@ metadata:
 data:
   index.html: |
     <!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Breakout Trade Tech</title>
-    </head>
-    <body>
-      <h1>Breakout Trade Tech Website</h1>
-    </body>
-    </html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Breakout Trade Tech</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 1s ease, transform 1s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .scrolling-ticker {
+      white-space: nowrap;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+    .scrolling-ticker p {
+      display: inline-block;
+      padding-left: 100%;
+      animation: ticker 20s linear infinite;
+    }
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-purple-500 via-pink-400 to-yellow-400 text-gray-900 min-h-screen">
+
+  <!-- Stock Ticker -->
+  <div class="bg-black text-yellow-300 py-2 text-sm font-mono scrolling-ticker shadow-md">
+    <p>📈 NIFTY 50: 24,250 ▲ 0.85% | SENSEX: 81,450 ▲ 1.10% | RELIANCE: 2,950 ▼ 0.35% | TCS: 4,200 ▲ 0.65% | INFY: 1,580 ▼ 0.15%</p>
+  </div>
+
+  <!-- Header -->
+  <header class="sticky top-0 bg-gradient-to-r from-pink-500 to-yellow-400 shadow-lg z-40">
+    <div class="max-w-7xl mx-auto flex items-center justify-between py-4 px-6">
+      <h1 class="text-2xl font-bold text-white">Breakout Trade Tech</h1>
+      <nav class="space-x-6 text-white font-semibold">
+        <a href="#features" class="hover:text-black">Features</a>
+        <a href="#charts" class="hover:text-black">Charts</a>
+        <a href="#pricing" class="hover:text-black">Pricing</a>
+        <a href="#faq" class="hover:text-black">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="text-center py-20 bg-gradient-to-r from-purple-600 via-pink-500 to-red-400 text-white fade-in">
+    <h2 class="text-4xl sm:text-5xl font-extrabold">Trade Smarter with Breakout Trade</h2>
+    <p class="mt-4 text-lg">Learn, analyze, and grow with smart chart insights. Trusted by 1K+ users worldwide.</p>
+    <p class="mt-2 text-sm">Updated: March 1, 2025</p>
+    <a href="https://play.google.com/store/apps/details?id=com.breakouttrade.app&hl=en-IN" target="_blank" class="mt-6 inline-block bg-yellow-400 hover:bg-yellow-300 text-black px-6 py-3 rounded-full font-bold shadow-lg transition transform hover:scale-105">Download on Google Play</a>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="py-16 bg-gradient-to-r from-yellow-300 via-green-300 to-teal-400 fade-in">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h3 class="text-3xl font-bold mb-10 text-black">App Features</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2">
+          <h4 class="text-xl font-semibold text-purple-600">Smart Alerts</h4>
+          <p class="mt-3 text-gray-700">Get notified when your stocks hit breakout levels.</p>
+        </div>
+        <div class="p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2">
+          <h4 class="text-xl font-semibold text-pink-600">Interactive Charts</h4>
+          <p class="mt-3 text-gray-700">Track live charts with AI-powered insights.</p>
+        </div>
+        <div class="p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2">
+          <h4 class="text-xl font-semibold text-green-600">Data Safety</h4>
+          <p class="mt-3 text-gray-700">No data collected or shared, fully encrypted.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Charts -->
+  <section id="charts" class="py-16 bg-gradient-to-r from-purple-400 via-indigo-400 to-blue-400 fade-in">
+    <div class="max-w-6xl mx-auto px-6 text-center text-white">
+      <h3 class="text-3xl font-bold mb-10">Stock Charts</h3>
+      <canvas id="stockChart1" class="bg-white rounded-lg shadow-lg mb-8"></canvas>
+      <canvas id="stockChart2" class="bg-white rounded-lg shadow-lg"></canvas>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="py-16 bg-gradient-to-r from-indigo-400 via-blue-400 to-cyan-300 text-white fade-in">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <h3 class="text-3xl font-bold mb-10">Pricing Plans</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="p-8 bg-white/20 rounded-2xl shadow-xl transition transform hover:scale-105">
+          <h4 class="text-xl font-semibold">Free Plan</h4>
+          <p class="mt-4">Access to basic charts and alerts.</p>
+          <p class="mt-2 font-bold text-yellow-300">₹0/month</p>
+        </div>
+        <div class="p-8 bg-white/20 rounded-2xl shadow-xl transition transform hover:scale-105">
+          <h4 class="text-xl font-semibold">Premium Plan</h4>
+          <p class="mt-4">Unlock all advanced features & insights.</p>
+          <p class="mt-2 font-bold text-yellow-300">₹499/month</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-16 bg-gradient-to-r from-pink-400 via-red-300 to-orange-300 fade-in">
+    <div class="max-w-4xl mx-auto px-6">
+      <h3 class="text-3xl font-bold text-center text-white mb-8">FAQs</h3>
+      <div class="space-y-6 text-white">
+        <div>
+          <h4 class="font-semibold">Is my data safe?</h4>
+          <p>Yes! No data is collected or shared. Data is encrypted in transit.</p>
+        </div>
+        <div>
+          <h4 class="font-semibold">How do I contact support?</h4>
+          <p>Email us at <a href="mailto:info@saneinfotech.com" class="underline">info@saneinfotech.com</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 bg-gradient-to-r from-purple-600 via-pink-500 to-red-400 text-center text-white">
+    <p>© 2025 Breakout Trade Tech (SANE INFOTECH). All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll('.fade-in').forEach(el => {
+        setTimeout(() => el.classList.add('visible'), 200);
+      });
+    });
+
+    const ctx1 = document.getElementById('stockChart1').getContext('2d');
+    new Chart(ctx1, {
+      type: 'line',
+      data: {
+        labels: ["Mon", "Tue", "Wed", "Thu", "Fri"],
+        datasets: [{
+          label: "NIFTY 50",
+          data: [24000, 24100, 24250, 24180, 24300],
+          borderColor: "#10B981",
+          tension: 0.4,
+          fill: false
+        }]
+      },
+      options: { responsive: true, animation: { duration: 2000 } }
+    });
+
+    const ctx2 = document.getElementById('stockChart2').getContext('2d');
+    new Chart(ctx2, {
+      type: 'line',
+      data: {
+        labels: ["Mon", "Tue", "Wed", "Thu", "Fri"],
+        datasets: [{
+          label: "SENSEX",
+          data: [81000, 81200, 81450, 81320, 81500],
+          borderColor: "#3B82F6",
+          tension: 0.4,
+          fill: false
+        }]
+      },
+      options: { responsive: true, animation: { duration: 2000 } }
+    });
+  </script>
+
+</body>
+</html>
