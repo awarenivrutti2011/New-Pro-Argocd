@@ -1,13 +1,18 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: breakout-trade-service
+  name: breakout-trade
   namespace: breakout-trade-tech
 spec:
   selector:
     app: breakout-trade
+  type: NodePort   # must be included
   ports:
     - protocol: TCP
     - port: 80
       targetPort: 80
       nodePort: 30080
+<<<<<<< HEAD
+=======
+
+>>>>>>> dab6ba3 (origin)
