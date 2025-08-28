@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Breakout Trade Tech</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body { background: linear-gradient(to right, #6a11cb, #2575fc); color: white; text-align:center; padding: 2rem; }
+  </style>
+</head>
+<body>
+  <h1 class="text-4xl font-bold mb-4">Breakout Trade Tech Website</h1>
+  <p class="mb-6">Colorful, interactive charts and trading insights!</p>
+  <canvas id="stockChart" width="600" height="400" class="mx-auto"></canvas>
+  <script>
+    const ctx = document.getElementById('stockChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Mon','Tue','Wed','Thu','Fri'],
+        datasets: [{ label: 'Stock Price', data: [152,158,149,165,173], borderColor: '#ffcc00', backgroundColor: 'rgba(255,204,0,0.2)', fill: true, tension: 0.4 }]
+      },
+      options: { responsive: true }
+    });
+  </script>
+</body>
+</html>
