@@ -16,6 +16,6 @@ spec:
       serviceAccountName: breakout-trade-sa
       containers:
       - name: breakout-trade-container
-        image: YOUR_DOCKERHUB_USERNAME/breakout-trade-tech:latest
+        image: awarenivrutti11/breakout-trade-tech:latest
         ports:
         - containerPort: 80
